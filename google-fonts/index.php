@@ -1,4 +1,7 @@
-<title>Popular 2020 Google Fonts</title>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Google Fonts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -19,6 +22,10 @@ for($i = 0; $i < count($font_arr); $i++) { ?>
 <script type="text/javascript">
 	var theFontSize = 22;
 </script>
+
+</head>
+
+<body>
 
 <div class="container">
 	<div class="row">
@@ -42,3 +49,6 @@ for($i = 0; $i < count($font_arr); $i++) { ?>
 		<br /><hr /><br />
 	<?php } ?>
 </div>
+
+</body>
+</html>
