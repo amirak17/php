@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>jQuery CropCircle</title>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript">
+        var CropCircle;
+        var CropLeft_X1;
+        var CropTop_Y1;
+        var CropRight_X2;
+        var CropBottom_Y2;
+        var CropWidth;
+        var CropHeight;
+
+        function CropInit() {
+
+
+            var cropImgWidth = $('#cropImg').css('width');
+            $('#outerBox').css('width', cropImgWidth);
+
+            CropCircle($("#outerBox"),  {
+                handles: 8,
+                forceAspect: 1,
+                showHelp: true,
+                onFrameChanged: function(frame) {
+                    CropLeft_X1 = parseInt(frame.left);
+                    CropTop_Y1 = parseInt(frame.top);
+                    CropWidth = parseInt(frame.width);
+                    CropHeight = parseInt(frame.height);
+                    CropRight_X2 = CropLeft_X1 + CropWidth;
+                    CropBottom_Y2 = CropTop_Y1 + CropHeight;
+                    $('#x1y1').val(CropLeft_X1 + ', ' + CropTop_Y1);
+                    $('#x2y2').val(CropRight_X2 + ', ' + CropBottom_Y2);
+                    $('#wh').val(CropWidth + ', ' + CropHeight);
+                    var outerBox = $('#outerBox');
+                },
+                circle: true,
+            });
+        }
+
+		function showCroppedImage() {            
+			var url = "cropcircle.php?file=subject.jpg&x1=" + CropLeft_X1 + "&y1=" + CropTop_Y1 + "&x2=" + CropRight_X2 + "&y2=" + CropBottom_Y2 + "&w=" + CropWidth + "&h=" + CropHeight;
+			$('#output').attr('src', url);
+			$('#output').css('width', CropWidth);
+			$('#output').css('height', CropHeight);
+			$('#output').show();
+		}
+
+        function define(deps, func) {
+            CropCircle = func($);
+        }
+
+    </script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="cropcircle.js"></script>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+        #outerBox {
+            /* border: 1px solid #666; */
+            background: grey;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .crop-circle-crop-frame {
+            border: 1px solid rgba(240, 240, 240, 0.8);
+        }
+
+        .crop-circle-handle {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            box-shadow: 1px 1px 1px 1px black;
+        }
+
+        .crop-circle-touch .crop-circle-handle {
+            display: none;
+        }
+
+        .crop-circle-help {
+            color: black;
+            font-size: 12px;
+            position: absolute;
+            z-index: 1000;
+            top: 10px;
+            left: 10px;
+        }
+
+    </style>
+</head>
+<body onload="CropInit()">
+    Crop Circle
+    <div id="outerBox"><img src="subject.jpg" id="cropImg" /></div>
+	<iframe src="" id="output" style="display: none;"></iframe><br />
+    x1, y1 <input id="x1y1" size="10"><br />
+    x2, y2 <input id="x2y2" size="10"><br />
+    w, h &nbsp;&nbsp;   <input id="wh" size="10"><br />
+	<input type="button" value="Show Croppped Image" onclick="showCroppedImage(); return false;" /><br />
+</body>
+</html>
