@@ -20,7 +20,7 @@ class Utilities_Library {
 		mail($to_email, $subject, $message_html_updated, $headers);
 	}
 
-/*
+    // codeigniter
     public function send_email($from_email, $from_name, $to_email, $to_name, $subject, $message_html) {
 
         $message_html_updated = '';
@@ -41,7 +41,7 @@ class Utilities_Library {
         $CI->email->set_mailtype("html");
         $CI->email->send(); // echo $this->email->print_debugger(); exit();
     }
-*/
+
     public function print_array($arr, $cols=75, $rows=75) {
         echo "<textarea cols=$cols rows=$rows>";
         print_r($arr);
@@ -185,6 +185,9 @@ class Utilities_Library {
         echo $CI->agent->version() . '|';
     }
 
+    function password_generate($c=5) {
+      return substr(str_shuffle('1234567890abcefghijklmnopqrstuvwxyz'), 0, $c);
+    }
 
 	
 }
