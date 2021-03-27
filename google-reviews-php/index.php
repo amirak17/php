@@ -1,7 +1,7 @@
 <?php 
 
-$maps_key = 'AIzaSyCSBvH1CjXKNAEHa1msyGpC4nzrlEyiUFE';
-$places_key = 'ChIJCQnWRY6ipBIRWI18NnMnK6k';
+$maps_key = 'MAP_KEY';
+$places_key = 'PLACES_KEY';
 
 $url = 'https://maps.googleapis.com/maps/api/place/details/json?key='.$maps_key.'&placeid='.$places_key;
 $ch = curl_init();
