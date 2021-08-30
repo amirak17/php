@@ -19,7 +19,7 @@
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
     <?php 
-// error_reporting(E_ALL); ini_set('display_errors', 1);
+        // error_reporting(E_ALL); ini_set('display_errors', 1);
         $conn = mysql_connect('localhost', 'db_user', 'db_pwd'); 
         mysql_select_db('db'); 
 
