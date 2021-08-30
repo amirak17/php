@@ -20,8 +20,8 @@
 
     <?php 
 // error_reporting(E_ALL); ini_set('display_errors', 1);
-        $conn = mysql_connect('localhost', 'weddingg_wgtest', 'qaWs12#4'); 
-        mysql_select_db('weddingg_wgtest'); 
+        $conn = mysql_connect('localhost', 'db_user', 'db_pwd'); 
+        mysql_select_db('db'); 
 
         function run_sql($query) {
             $result = mysql_query($query);
