@@ -313,10 +313,4 @@ function days_dates_diff($d1, $d2) {
   // echo days_dates_diff('2020-01-10', '2020-01-01') // 9
 }
 
-
-function str_replace_first($search, $replace, $subject) {
-    $search = '/'.preg_quote($search, '/').'/';
-    return preg_replace($search, $replace, $subject, 1);
-}
-
 ?>
