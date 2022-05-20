@@ -320,4 +320,10 @@ function str_replace_first($search, $replace, $subject) {
     // str_replace only first occurance
 }
 
+function remove_urls($x) {
+    $regex = "@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@";
+    $s = preg_replace($regex, ' ', $x);
+    return str_replace('   ', ' ', $s);
+}
+
 ?>
