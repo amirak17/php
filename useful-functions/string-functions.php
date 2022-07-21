@@ -326,4 +326,15 @@ function remove_urls($x) {
     return str_replace('   ', ' ', $s);
 }
 
+function match_string_array($str, $arr) {
+  $str = strtolower($str);
+  for($i = 0; $i < count($arr); $i++) {
+      $arr[$i] = strtolower($arr[$i]);
+      if(strpos($str, $arr[$i]) !== false) {
+          return 'true';
+      } 
+  }
+  return false;
+}
+
 ?>
