@@ -337,4 +337,16 @@ function match_string_array($str, $arr) {
   return false;
 }
 
+function remove_weird_chars($s) {  
+  $s_arr = str_split($s); 
+  $new_s = '';
+  foreach($s_arr as $c) {    
+    $c_no = ord($c);
+    if($c_no > 31 && $c_no < 127) {
+      $new_s .= $c;    
+    }
+  }  
+  return stripslashes($new_s);
+}
+
 ?>
