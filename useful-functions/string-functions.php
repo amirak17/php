@@ -284,6 +284,13 @@ function scandir_files($path) {
   return $arr;
 }
 
+function get_dir_files($x) {
+  $arr = scandir($x.'/');
+  array_shift($arr);
+  array_shift($arr);
+  return $arr;
+}
+
 function get_directories_list($dir) {
   $files = glob($dir . "*");
   $dirs = array();
