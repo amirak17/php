@@ -227,36 +227,6 @@ class Utilities_Library {
         $dash_str .= $password;
         return $dash_str;
     }
-
-
-    public function get_folders_recursively($dir, &$results = array()) {
-    $files = scandir($dir);
-    foreach ($files as $key => $value) {
-        $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
-        if (!is_dir($path)) {
-            $results[] = $path;
-        } else if ($value != "." && $value != "..") {
-            get_folders_recursively($path, $results);
-            $results[] = $path;
-        }
-        rsort($results);
-    }
-
-    $arr = array();
-    for($i = 0; $i < count($results); $i++) {
-        if(!is_file($results[$i])) {
-            array_push($arr, $results[$i]);
-        }
-    }
-    krsort($arr);
-    $arr2 = array();
-    for($i = count($arr)-1; $i >= 0; $i--) {
-        @array_push($arr2, $arr[$i]);
-    }
-
-    return $arr2;
-}
-
 	
 }
 
