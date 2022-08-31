@@ -363,27 +363,4 @@ function replace_accents($str) {
 }
 
 
-function get_folders_recursively($dir, &$results = array()) {
-    $files = scandir($dir);
-    foreach ($files as $key => $value) {
-        $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
-        if (!is_dir($path)) {
-            $results[] = $path;
-        } else if ($value != "." && $value != "..") {
-            get_folders_recursively($path, $results);
-            $results[] = $path;
-        }
-        rsort($results);
-    }
-
-  $arr = array();
-  for($i = 0; $i < count($results); $i++) {
-    if(!is_file($results[$i])) {
-      array_push($arr, $results[$i]);
-    }
-  }
-  krsort($arr);
-    return $arr;
-}
-
 ?>
