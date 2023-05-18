@@ -146,8 +146,22 @@ function get_float($str) {
 function get_number($str) {
     return  filter_var($str, FILTER_SANITIZE_NUMBER_INT);
 }
+
+
+function wordwrap_special($t, $limit, $after, $insert) {
+    $r = '';
+    $count = 0;
+    for($i = 0; $i < strlen($t); $i++) {
+      if($count >= $limit && $t[$i] === $after) {
+         $count = 0;
+         $r .= $insert;
+      }
+      else {
+         $count++;
+         $r .= $t[$i];
+      }
+    }
+    return $r;
+}
  
-
-
-
 ?>
