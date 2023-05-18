@@ -163,5 +163,28 @@ function wordwrap_special($t, $limit, $after, $insert) {
     }
     return $r;
 }
+
+
+function string_2_array_sep_nsplit($str, $sep, $n) {
+    $l = strlen($str);
+    $arr = array();
+    $ac = 0;
+    $count = 0;
+    $acc_str = '';
+    $n = $n - 1;
+    
+    for($i = 0; $i < $l; $i++) {
+        $count += 1;
+        $acc_str .= $str[$i];
+        if($str[$i] == $sep && $count > $n) {
+            $arr[$ac++] = $acc_str;
+            $acc_str = '';
+            $count = 0;
+            $last_counter = $i;
+        }
+    }
+    $arr[$ac++] = ltrim(substr($str, $last_counter, $l), $sep);
+    return $arr;
+}
  
 ?>
