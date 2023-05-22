@@ -192,5 +192,17 @@ function string_2_array_sep_nsplit($str, $sep, $n) {
     }
     return $arr;
 }
+
+function random_password($l = 8) {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyz1234567890';
+    $pass = array(); 
+    $alphaLength = strlen($alphabet) - 1;
+    for ($i = 0; $i < $l; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass);
+}
+
  
 ?>
