@@ -273,5 +273,21 @@ function extract_all_emails_from_string($string) {
 }
 
 
+function custom_encode($x) {
+    $e = '';
+    for($i = 0; $i < strlen($x); $i++) {
+        $e .= chr(ord($x[$i])+10);
+    }
+    return $e;
+}
+
+function custom_decode($x) {
+    $e = '';
+    for($i = 0; $i < strlen($x); $i++) {
+        $e .= chr(ord($x[$i])-10);
+    }
+    return $e;
+}
+
  
 ?>
