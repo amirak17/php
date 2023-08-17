@@ -266,5 +266,12 @@ function validate_email($email) {
   return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
+function extract_all_emails_from_string($string) {
+    $pattern = '/[a-z0-9_\-\+\.]+@[a-z0-9\-]+\.([a-z]{2,4})(?:\.[a-z]{2})?/i';
+    preg_match_all($pattern, $string, $matches);  
+    print_r($matches['0']);
+}
+
+
  
 ?>
